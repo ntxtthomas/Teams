@@ -21,6 +21,7 @@ app.factory("playerFactory", function($http){
         })
     }
     factory.create = function(playerInfo,callback){
+        console.log(playerInfo);
         $http.post("/players", playerInfo).success(function(output){
             callback(output);
         })
@@ -32,9 +33,12 @@ app.factory("playerFactory", function($http){
     }
     return factory;
 })
-app.controller("playersController", function($scope, playerFactory){
+app.controller("playersController", function($scope, playerFactory, teamFactory){
     playerFactory.index(function(json){
         $scope.players = json;
+    })
+    teamFactory.index(function(json){
+        $scope.teams = json;
     })
     $scope.createPlayer = function(){
         playerFactory.create($scope.newPlayer, function(json){

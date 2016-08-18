@@ -16,6 +16,6 @@ class PlayersController < ApplicationController
   	render :json => Player.all
   end
   def player_params
-  	params.require(:player).permit(:first_name, :last_name)
+  	params.require(:player).permit(:first_name, :last_name, :team_id)
   end
 end

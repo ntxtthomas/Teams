@@ -15,5 +15,12 @@
 		<label>Last Name:</label>
 		<input ng-model="newPlayer.player.last_name" type="text">
 	</p>
+	<p>
+		<label>Team:</label>
+		<select name="Team" ng-model="newPlayer.player.team_id">
+			<option  ng-repeat="team in teams" value="{{team.id}}">{{ team.name }}</option>
+		</select>
+	</p>
 	<input ng-click="createPlayer()" type="submit" value="Create Player">
 </div>
+
